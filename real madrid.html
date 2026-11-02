@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Madrid C.F. - Sito Non Ufficiale</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'rm-blue': '#00529F',
+                        'rm-gold': '#FEBE10',
+                        'rm-dark': '#1a202c',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Transizioni morbide per le sezioni */
+        .page-section {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .page-section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Stili per la navigazione attiva */
+        .nav-link.active {
+            color: #FEBE10;
+            border-bottom: 2px solid #FEBE10;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
+
+    <!-- Header / Navigazione -->
+    <header class="bg-rm-blue text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="navigate('home')">
+                <!-- Icona Logo Placeholder -->
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-rm-blue font-bold border-2 border-rm-gold">
+                    RM
+                </div>
+                <h1 class="text-2xl font-bold tracking-wider hidden sm:block">REAL MADRID</h1>
+            </div>
+            
+            <!-- Menu Desktop & Mobile (Semplificato) -->
+            <nav>
+                <ul class="flex space-x-2 sm:space-x-6 text-sm sm:text-base font-semibold">
+                    <li><a href="#" class="nav-link active pb-1 transition hover:text-rm-gold" onclick="navigate('home', event)">Home</a></li>
+                    <li><a href="#" class="nav-link pb-1 transition hover:text-rm-gold" onclick="navigate('storia', event)">Storia</a></li>
+                    <li><a href="#" class="nav-link pb-1 transition hover:text-rm-gold" onclick="navigate('squadra', event)">Squadra</a></li>
+                    <li><a href="#" class="nav-link pb-1 transition hover:text-rm-gold" onclick="navigate('stadio', event)">Stadio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-6xl">
+
+        <!-- PAGINA: HOME -->
+        <section id="home" class="page-section active">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl mb-12 bg-rm-dark text-white">
+                <img src="https://placehold.co/1200x500/00529F/FFFFFF?text=Hala+Madrid" alt="Real Madrid Hero" class="w-full h-64 sm:h-96 object-cover opacity-70">
+                <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6 bg-gradient-to-t from-black/80 to-transparent">
+                    <h2 class="text-4xl sm:text-6xl font-extrabold mb-4 text-white drop-shadow-md">IL RE D'EUROPA</h2>
+                    <p class="text-lg sm:text-2xl text-gray-200 max-w-2xl mb-8">Benvenuti nel sito dedicato al club calcistico più titolato e prestigioso della storia del calcio mondiale.</p>
+                    <button onclick="navigate('storia')" class="bg-rm-gold text-rm-dark px-8 py-3 rounded-full font-bold text-lg hover:bg-white hover:text-rm-blue transition shadow-lg transform hover:scale-105">
+                        Scopri la Leggenda
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-rm-blue hover:shadow-xl transition">
+                    <i class="fas fa-trophy text-4xl text-rm-gold mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2 text-rm-blue">15 Champions League</h3>
+                    <p class="text-gray-600">Nessun club ha dominato l'Europa come il Real Madrid, il re indiscusso della competizione.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-rm-blue hover:shadow-xl transition">
+                    <i class="fas fa-crown text-4xl text-rm-gold mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2 text-rm-blue">Miglior Club del XX Secolo</h3>
+                    <p class="text-gray-600">Riconosciuto ufficialmente dalla FIFA come il miglior club calcistico dello scorso secolo.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-rm-blue hover:shadow-xl transition">
+                    <i class="fas fa-futbol text-4xl text-rm-gold mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2 text-rm-blue">La Galaxia Bianca</h3>
+                    <p class="text-gray-600">Da Di Stéfano a Cristiano Ronaldo, fino alle stelle di oggi. I migliori giocano qui.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGINA: STORIA -->
+        <section id="storia" class="page-section">
+            <h2 class="text-3xl sm:text-5xl font-bold text-rm-blue mb-8 border-b-4 border-rm-gold inline-block pb-2">La Nostra Storia</h2>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 sm:p-10 mb-10">
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Fondato il 6 marzo 1902 come Madrid Football Club, il club ha ricevuto il titolo di "Real" (Reale) dal Re Alfonso XIII nel 1920, insieme alla corona reale nello stemma. Da allora, il Real Madrid si è affermato come una forza trainante nel calcio spagnolo ed europeo.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Negli anni '50, sotto la presidenza di Santiago Bernabéu e guidati in campo da leggende come Alfredo Di Stéfano e Ferenc Puskás, il Real Madrid vinse le prime cinque edizioni consecutive della Coppa dei Campioni, un'impresa tuttora ineguagliata.
+                </p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-rm-blue mb-6">Palmarès Principale</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-gray-100 p-6 rounded-lg text-center shadow-sm">
+                    <div class="text-4xl font-black text-rm-blue mb-2">36</div>
+                    <div class="text-sm font-semibold uppercase text-gray-500">Campionati Spagnoli</div>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg text-center shadow-sm">
+                    <div class="text-4xl font-black text-rm-blue mb-2">15</div>
+                    <div class="text-sm font-semibold uppercase text-gray-500">Coppe dei Campioni / UCL</div>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg text-center shadow-sm">
+                    <div class="text-4xl font-black text-rm-blue mb-2">20</div>
+                    <div class="text-sm font-semibold uppercase text-gray-500">Coppe del Re</div>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg text-center shadow-sm">
+                    <div class="text-4xl font-black text-rm-blue mb-2">8</div>
+                    <div class="text-sm font-semibold uppercase text-gray-500">Mondiali per Club</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGINA: SQUADRA -->
+        <section id="squadra" class="page-section">
+            <h2 class="text-3xl sm:text-5xl font-bold text-rm-blue mb-8 border-b-4 border-rm-gold inline-block pb-2">Prima Squadra</h2>
+            <p class="text-gray-600 mb-8 text-lg">Scopri i campioni che vestono la leggendaria Camiseta Blanca nella stagione attuale.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Giocatore 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x400/eeeeee/00529F?text=Thibaut+Courtois" alt="Courtois" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold text-rm-blue">T. Courtois</h3>
+                            <span class="bg-rm-gold text-rm-dark font-bold px-2 py-1 rounded text-sm">#1</span>
+                        </div>
+                        <p class="text-gray-500 text-sm">Portiere</p>
+                    </div>
+                </div>
+                
+                <!-- Giocatore 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x400/eeeeee/00529F?text=Dani+Carvajal" alt="Carvajal" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold text-rm-blue">D. Carvajal</h3>
+                            <span class="bg-rm-gold text-rm-dark font-bold px-2 py-1 rounded text-sm">#2</span>
+                        </div>
+                        <p class="text-gray-500 text-sm">Difensore</p>
+                    </div>
+                </div>
+
+                <!-- Giocatore 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x400/eeeeee/00529F?text=Jude+Bellingham" alt="Bellingham" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold text-rm-blue">J. Bellingham</h3>
+                            <span class="bg-rm-gold text-rm-dark font-bold px-2 py-1 rounded text-sm">#5</span>
+                        </div>
+                        <p class="text-gray-500 text-sm">Centrocampista</p>
+                    </div>
+                </div>
+
+                <!-- Giocatore 4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x400/eeeeee/00529F?text=Fede+Valverde" alt="Valverde" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold text-rm-blue">F. Valverde</h3>
+                            <span class="bg-rm-gold text-rm-dark font-bold px-2 py-1 rounded text-sm">#8</span>
+                        </div>
+                        <p class="text-gray-500 text-sm">Centrocampista</p>
+                    </div>
+                </div>
+
+                <!-- Giocatore 5 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x400/eeeeee/00529F?text=Kylian+Mbappe" alt="Mbappe" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold text-rm-blue">K. Mbappé</h3>
+                            <span class="bg-rm-gold text-rm-dark font-bold px-2 py-1 rounded text-sm">#9</span>
+                        </div>
+                        <p class="text-gray-500 text-sm">Attaccante</p>
+                    </div>
+                </div>
+
+                <!-- Giocatore 6 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x400/eeeeee/00529F?text=Vinicius+Jr." alt="Vinicius" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold text-rm-blue">Vinícius Jr.</h3>
+                            <span class="bg-rm-gold text-rm-dark font-bold px-2 py-1 rounded text-sm">#7</span>
+                        </div>
+                        <p class="text-gray-500 text-sm">Attaccante</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGINA: STADIO -->
+        <section id="stadio" class="page-section">
+            <div class="flex flex-col md:flex-row gap-10 items-center">
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-3xl sm:text-5xl font-bold text-rm-blue mb-6 border-b-4 border-rm-gold inline-block pb-2">Santiago Bernabéu</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Il tempio del calcio mondiale. Inaugurato nel 1947, lo stadio Santiago Bernabéu è la casa del Real Madrid e ha ospitato innumerevoli notti magiche europee, oltre alla finale della Coppa del Mondo del 1982.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Recentemente, lo stadio ha subito un colossale rinnovamento che lo ha trasformato nell'arena sportiva più moderna e all'avanguardia del mondo, dotata di tetto retrattile, un tabellone video a 360 gradi e prato retrattile.
+                    </p>
+                    
+                    <ul class="space-y-3 bg-white p-6 rounded-lg shadow-sm">
+                        <li class="flex items-center text-gray-700"><i class="fas fa-users text-rm-blue mr-3 w-6"></i> <strong>Capacità:</strong> ~ 85.000 spettatori</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-map-marker-alt text-rm-blue mr-3 w-6"></i> <strong>Posizione:</strong> Paseo de la Castellana, Madrid</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-calendar-alt text-rm-blue mr-3 w-6"></i> <strong>Apertura:</strong> 14 Dicembre 1947</li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <img src="https://placehold.co/800x600/00529F/FFFFFF?text=Nuovo+Santiago+Bernabeu" alt="Stadio Bernabeu" class="rounded-xl shadow-2xl w-full object-cover">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-rm-dark text-gray-400 py-8 text-center mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="hover:text-white transition"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-facebook text-xl"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-youtube text-xl"></i></a>
+            </div>
+            <p>&copy; 2026 Progetto Real Madrid SPA. Sito non ufficiale a scopo dimostrativo.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript per la navigazione delle "pagine" -->
+    <script>
+        function navigate(pageId, event = null) {
+            // Previeni il comportamento di default del link se un evento è passato
+            if (event) {
+                event.preventDefault();
+            }
+
+            // 1. Nascondi tutte le sezioni
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // 2. Mostra la sezione richiesta
+            const targetSection = document.getElementById(pageId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // 3. Aggiorna lo stile dei link di navigazione
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                
+                // Un modo semplice per trovare il link corretto in base al testo o all'onclick
+                if (link.getAttribute('onclick').includes(pageId)) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Torna all'inizio della pagina quando si cambia sezione
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
